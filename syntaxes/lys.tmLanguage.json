@@ -45,7 +45,7 @@
     },
     {
       "name": "keyword.operator.lys",
-      "match": "(\\+\\+|\\|\\>|\\-\\>|→)"
+      "match": "(\\+\\+|\\|\\>|\\-\\>)"
     },
     {
       "name": "keyword.operator.logical.lys",
