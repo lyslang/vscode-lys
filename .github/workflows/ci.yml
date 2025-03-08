@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 Aljebriq <143266740+aljebriq@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Łukasz Bartkiewicz <lukasku@proton.me>
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: blacksmith-2vcpu-ubuntu-2204
+    name: Quality Assurance
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: REUSE compliance check
+        uses: fsfe/reuse-action@v5
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check
+        run: bun run vscode:prepublish

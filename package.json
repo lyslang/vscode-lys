@@ -1,0 +1,98 @@
+{
+  "name": "lys",
+  "displayName": "Lys",
+  "description": "The Lys purely functional programming language.",
+  "private": true,
+  "icon": "assets/asterisk-256.png",
+  "version": "2025.1.1",
+  "license": "GPL-3.0-only",
+  "publisher": "lyslang",
+  "qna": false,
+  "homepage": "https://github.com/lyslang/vscode-lys#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyslang/vscode-lys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lyslang/vscode-lys/issues"
+  },
+  "categories": ["Programming Languages", "Formatters"],
+  "keywords": ["functional"],
+  "extensionKind": ["ui", "workspace"],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "Workspaces can override the path to the executable."
+    },
+    "virtualWorkspaces": false
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Lys",
+      "properties": {
+        "lys.executablePath": {
+          "type": "string",
+          "default": "lys",
+          "scope": "machine-overridable",
+          "description": "Path to or name in PATH of the Lys executable."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "[lys]": {
+        "editor.defaultFormatter": "lyslang.lys",
+        "editor.indentSize": 2
+      }
+    },
+    "languages": [
+      {
+        "id": "lys",
+        "aliases": ["Lys", "lys"],
+        "extensions": [".lys"],
+        "configuration": "syntaxes/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lys",
+        "scopeName": "source.lys",
+        "path": "syntaxes/lys.tmLanguage.json"
+      },
+      {
+        "scopeName": "markdown.lys.codeblock",
+        "path": "syntaxes/lys.codeblock.json",
+        "injectTo": ["text.html.markdown"],
+        "embeddedLanguages": {
+          "meta.embedded.block.lys": "lys"
+        }
+      }
+    ]
+  },
+  "main": "dist/extension.js",
+  "scripts": {
+    "vscode:prepublish": "bun run package",
+    "compile": "bun run check && bun esbuild.ts",
+    "package": "bun run check && bun esbuild.ts --production",
+    "check": "bun run check:types && bun run check:biome",
+    "check:types": "tsc",
+    "check:biome": "biome check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@total-typescript/tsconfig": "^1.0.4",
+    "@types/node": "^22.13.10",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.2",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.2"
+  },
+  "trustedDependencies": [
+    "esbuild",
+    "keytar",
+    "@biomejs/biome",
+    "@vscode/vsce-sign"
+  ]
+}
