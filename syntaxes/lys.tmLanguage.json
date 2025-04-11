@@ -41,7 +41,7 @@
     },
     {
       "name": "keyword.control.lys",
-      "match": "\\b(if|then|else|let|in|match|with|lambda|λ)\\b"
+      "match": "(\\b(if|then|else|let|in|match)\\b|\\\\)"
     },
     {
       "name": "keyword.operator.lys",
@@ -89,11 +89,7 @@
     },
     {
       "name": "keyword.other.lys",
-      "match": "\\b(def|uni|syn)\\b"
-    },
-    {
-      "name": "punctuation.period punctuation.separator.period keyword.other.lys",
-      "match": "\\."
+      "match": "\\bdef\\b"
     },
     {
       "name": "punctuation.semicolon punctuation.separator.semicolon keyword.other.lys",
@@ -105,11 +101,7 @@
     },
     {
       "name": "punctuation.ellipsis punctuation.terminator.ellipsis keyword.other.lys",
-      "match": "(\\.\\.\\.|…)"
-    },
-    {
-      "name": "punctuation.backslash punctuation.separator.backslash keyword.other.lys",
-      "match": "\\\\"
+      "match": "\\.\\.\\."
     },
     {
       "name": "string.quoted.double.lys",
@@ -149,10 +141,6 @@
     {
       "name": "variable.other.lys",
       "match": "\\b((\\p{Ll}[\\p{L}\\d]*'*)|_)"
-    },
-    {
-      "name": "invalid.illegal.character.lys",
-      "match": "[^\\p{L}\\s]"
     }
   ]
 }
