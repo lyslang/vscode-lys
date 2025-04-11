@@ -27,6 +27,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 - Syntax highlighting
 - Formatting
+- Parsing
+- Helpful error messages
 
 ## Usage
 
