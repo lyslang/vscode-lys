@@ -12,7 +12,7 @@
     },
     {
       "name": "constant.numeric.float.lys",
-      "match": "\\b\\d+(\\.)\\d+([eE][+-]?\\d+)?\\b",
+      "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b",
       "captures": {
         "1": {
           "name": "punctuation.separator.decimal.lys"
@@ -41,19 +41,19 @@
     },
     {
       "name": "keyword.control.lys",
-      "match": "(\\b(if|then|else|let|in|match)\\b|\\\\)"
+      "match": "\\b(if|then|else|let|in|match)\\b|\\\\"
     },
     {
       "name": "keyword.operator.lys",
-      "match": "(\\+\\+|\\|\\>|\\-\\>)"
+      "match": "\\+\\+|\\|>|->"
     },
     {
       "name": "keyword.operator.logical.lys",
-      "match": "(\\|\\||\\&\\&)"
+      "match": "\\|\\||&&"
     },
     {
       "name": "keyword.operator.comparison.lys",
-      "match": "(\\!\\=|\\!\\~|\\~\\~|\\=\\=|\\<\\=|\\>\\=)"
+      "match": "!=|!~|~~|==|<=|>="
     },
     {
       "name": "keyword.operator.arithmetic.lys",
@@ -61,31 +61,31 @@
     },
     {
       "name": "keyword.operator.bitwise.lys",
-      "match": "(\\>\\>|\\<\\<)"
-    },
-    {
-      "name": "keyword.operator.lys",
-      "match": "\\:"
+      "match": ">>|<<"
     },
     {
       "name": "keyword.operator.assignment.lys",
-      "match": "\\="
+      "match": ":=|="
     },
     {
       "name": "keyword.operator.logical.lys",
-      "match": "\\!"
+      "match": "!"
     },
     {
       "name": "keyword.operator.comparison.lys",
-      "match": "[\\<\\>]"
+      "match": "[<>]"
     },
     {
       "name": "keyword.operator.arithmetic.lys",
-      "match": "[\\%\\/\\*\\-\\+]"
+      "match": "[%\\/*-+]"
     },
     {
       "name": "keyword.operator.bitwise.lys",
-      "match": "[\\^\\|\\&]"
+      "match": "[\\^|&]"
+    },
+    {
+      "name": "keyword.operator.lys",
+      "match": ":"
     },
     {
       "name": "keyword.other.lys",
