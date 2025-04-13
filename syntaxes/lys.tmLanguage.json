@@ -41,7 +41,7 @@
     },
     {
       "name": "keyword.control.lys",
-      "match": "\\b(if|then|else|let|in|match)\\b|\\\\"
+      "match": "\\b(if|then|else|let|in|match|as)\\b|\\\\"
     },
     {
       "name": "keyword.operator.lys",
