@@ -3,7 +3,7 @@
   "displayName": "Lyx",
   "description": "The Lyx purely functional programming language.",
   "private": true,
-  "icon": "assets/asterisk-256.png",
+  "icon": "assets/brand-256.png",
   "version": "2025.1.1",
   "license": "GPL-3.0-only",
   "publisher": "lyxlang",
