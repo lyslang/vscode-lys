@@ -4,23 +4,23 @@ SPDX-FileCopyrightText: 2025 Aljebriq <143266740+aljebriq@users.noreply.github.c
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# Contributing to Lys
+# Contributing to Lyx
 
-Thank you for your interest in contributing to Lys! We welcome contributions from everyone. This document outlines the process for contributing to the project.
+Thank you for your interest in contributing to Lyx! We welcome contributions from everyone. This document outlines the process for contributing to the project.
 
 ## Setting up the development environment
 
-To contribute to the VS Code extension of Lys, you’ll need to set up a JavaScript and TypeScript development environment. If you are using [nix-direnv](https://github.com/nix-community/nix-direnv), you can skip this section.
+To contribute to the VS Code extension of Lyx, you’ll need to set up a JavaScript and TypeScript development environment. If you are using [nix-direnv](https://github.com/nix-community/nix-direnv), you can skip this section.
 
 Follow these steps:
 
 1. [Install](https://bun.sh/docs/installation) [Bun](https://bun.sh/).
 
-2. Clone the vscode-lys repository:
+2. Clone the vscode-lyx repository:
 
    ```sh
-   git clone https://github.com/lyslang/vscode-lys.git
-   cd vscode-lys
+   git clone https://github.com/lyxlang/vscode-lyx.git
+   cd vscode-lyx
    ```
 
 3. Install project dependencies:
@@ -66,14 +66,14 @@ If you’re unsure about which license to use or how to add it, please ask for g
 
 If you need help or have questions, you can:
 
-- Open an issue in the [GitHub repository](https://github.com/lyslang/vscode-lys/issues).
+- Open an issue in the [GitHub repository](https://github.com/lyxlang/vscode-lyx/issues).
 - Leave comments on existing issues or pull requests.
 - Reach out to the maintainers directly.
 
 ## Additional resources
 
-- [Lys wiki](https://github.com/lyslang/lys/wiki)
+- [Lyx wiki](https://github.com/lyxlang/lyx/wiki)
 - [Bun documentation](https://bun.sh/docs)
 - [VS Code API documentation](https://code.visualstudio.com/api)
 
-We appreciate your contributions and are excited to see what you bring to Lys. Thank you for contributing!
+We appreciate your contributions and are excited to see what you bring to Lyx. Thank you for contributing!

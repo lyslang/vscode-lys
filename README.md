@@ -6,15 +6,12 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 <div align="center">
   <br />
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lyslang/.github/main/media/brand-dark.png">
-    <img src="https://raw.githubusercontent.com/lyslang/.github/main/media/brand-light.png" alt="Lys" width="400">
-  </picture>
+  <img src="https://raw.githubusercontent.com/lyxlang/.github/main/media/brand.png" alt="Lyx" width="400">
   <p align="center">
     <br />
-    The Visual Studio Code extension of the Lys purely functional programming language.
+    The Visual Studio Code extension of the Lyx purely functional programming language.
     <br />
-    <a href="https://github.com/lyslang/lys">Lys</a> •
+    <a href="https://github.com/lyxlang/lyx">Lyx</a> •
     <a href="#usage">Usage</a> •
     <a href="#manual-installation">Manual Installation</a> •
     <a href="#contributing">Contributing</a> •
@@ -31,9 +28,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 ## Usage
 
-The expected file extension of the Lys programming language is `.lys`.
+The expected file extension of the Lyx programming language is `.lyx`.
 
-You will only need to have the Lys executable either in your PATH, or pointed by the `lys.executablePath` setting, for the formatting to work as the default formatter setting is already configured for you.
+You will only need to have the Lyx executable either in your PATH, or pointed by the `lyx.executablePath` setting, for the formatting to work as the default formatter setting is already configured for you.
 
 ## Manual installation
 
@@ -52,13 +49,13 @@ Then in Visual Studio Code:
 
 - Open the command palette (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>).
 - Search for and select “Developer: Install Extension from Location…”.
-- Navigate to and select the root directory of the repository (`vscode-lys`).
+- Navigate to and select the root directory of the repository (`vscode-lyx`).
 
 The extension is now installed.
 
 ## Contributing
 
-If you would like to contribute to this project, please check out our [contributing guide](https://github.com/lyslang/vscode-lys/blob/main/docs/CONTRIBUTING.md) for detailed information on how to get started.
+If you would like to contribute to this project, please check out our [contributing guide](https://github.com/lyxlang/vscode-lyx/blob/main/docs/CONTRIBUTING.md) for detailed information on how to get started.
 
 ## License
 

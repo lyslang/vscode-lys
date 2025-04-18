@@ -1,9 +1,9 @@
 {
   "injectionSelector": "L:text.html.markdown",
-  "scopeName": "markdown.lys.codeblock",
+  "scopeName": "markdown.lyx.codeblock",
   "patterns": [
     {
-      "begin": "(^|\\G)(\\s*)(\\`{3,}|~{3,})\\s*(?i:(lys)(\\s+[^`~]*)?$)",
+      "begin": "(^|\\G)(\\s*)(\\`{3,}|~{3,})\\s*(?i:(lyx)(\\s+[^`~]*)?$)",
       "name": "markup.fenced_code.block.markdown",
       "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
       "beginCaptures": {
@@ -26,10 +26,10 @@
         {
           "begin": "(^|\\G)(\\s*)(.*)",
           "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
-          "contentName": "meta.embedded.block.lys",
+          "contentName": "meta.embedded.block.lyx",
           "patterns": [
             {
-              "include": "source.lys"
+              "include": "source.lyx"
             }
           ]
         }

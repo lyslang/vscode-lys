@@ -8,7 +8,7 @@ import { spawn } from "node:child_process";
 import vscode from "vscode";
 import { contributes } from "../package.json";
 
-interface LysError {
+interface LyxError {
   code: number;
   msg: string;
   startLine: number;
@@ -29,44 +29,44 @@ class Formatter {
     try {
       const executablePath =
         vscode.workspace
-          .getConfiguration("lys")
+          .getConfiguration("lyx")
           .get<string>("executablePath") ??
-        contributes.configuration.properties["lys.executablePath"].default;
+        contributes.configuration.properties["lyx.executablePath"].default;
 
       const cwd =
         vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? process.cwd();
 
-      const lysFmt = spawn(executablePath, ["fmt"], { cwd });
+      const lyxFmt = spawn(executablePath, ["fmt"], { cwd });
 
-      cancel.onCancellationRequested(() => lysFmt.kill());
+      cancel.onCancellationRequested(() => lyxFmt.kill());
 
       let stderr = "";
       let stdout = "";
 
-      lysFmt.stderr.on("data", (chunk) => {
+      lyxFmt.stderr.on("data", (chunk) => {
         stderr += chunk;
       });
 
-      lysFmt.stdout.on("data", (chunk) => {
+      lyxFmt.stdout.on("data", (chunk) => {
         stdout += chunk;
       });
 
-      lysFmt.stdin.write(document.getText());
-      lysFmt.stdin.end();
+      lyxFmt.stdin.write(document.getText());
+      lyxFmt.stdin.end();
 
       const code = await new Promise<number | null>((resolve, reject) => {
-        lysFmt.on("error", (error) => {
+        lyxFmt.on("error", (error) => {
           if (error.message.includes("ENOENT")) {
             reject(
               new Error(
-                `Lys executable not found. Please ensure that “${executablePath}” is correct and points to a valid Lys executable. You can set the path in VS Code settings under “lys.executablePath” or make sure it’s in your system’s PATH.`,
+                `Lyx executable not found. Please ensure that “${executablePath}” is correct and points to a valid Lyx executable. You can set the path in VS Code settings under “lyx.executablePath” or make sure it’s in your system’s PATH.`,
               ),
             );
           } else {
             reject(error);
           }
         });
-        lysFmt.on("close", resolve);
+        lyxFmt.on("close", resolve);
       });
 
       if (cancel.isCancellationRequested) {
@@ -83,16 +83,16 @@ class Formatter {
         return [vscode.TextEdit.replace(fullRange, stdout)];
       }
 
-      const lysError: LysError = JSON.parse(stderr);
+      const lyxError: LyxError = JSON.parse(stderr);
 
-      const errorMessage = `E${lysError.code.toString().padStart(4, "0")}: ${lysError.msg}`;
+      const errorMessage = `E${lyxError.code.toString().padStart(4, "0")}: ${lyxError.msg}`;
 
       const diagnostic = new vscode.Diagnostic(
         new vscode.Range(
-          lysError.startLine,
-          lysError.startCol,
-          lysError.endLine,
-          lysError.endCol,
+          lyxError.startLine,
+          lyxError.startCol,
+          lyxError.endLine,
+          lyxError.endCol,
         ),
         errorMessage,
         vscode.DiagnosticSeverity.Error,
@@ -114,9 +114,9 @@ class Formatter {
 
 export function activate(context: vscode.ExtensionContext) {
   try {
-    const diagnostics = vscode.languages.createDiagnosticCollection("lys");
+    const diagnostics = vscode.languages.createDiagnosticCollection("lyx");
     const formatter = new Formatter(diagnostics);
-    const selector = { language: "lys" };
+    const selector = { language: "lyx" };
 
     context.subscriptions.push(
       diagnostics,
@@ -128,11 +128,11 @@ export function activate(context: vscode.ExtensionContext) {
   } catch (err) {
     if (err instanceof Error) {
       vscode.window.showErrorMessage(
-        `Lys extension activation failed: ${err.message}`,
+        `Lyx extension activation failed: ${err.message}`,
       );
     } else {
       vscode.window.showErrorMessage(
-        "An unexpected error occurred during Lys extension activation.",
+        "An unexpected error occurred during Lyx extension activation.",
       );
     }
   }

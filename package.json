@@ -1,20 +1,20 @@
 {
-  "name": "lys",
-  "displayName": "Lys",
-  "description": "The Lys purely functional programming language.",
+  "name": "lyx",
+  "displayName": "Lyx",
+  "description": "The Lyx purely functional programming language.",
   "private": true,
   "icon": "assets/asterisk-256.png",
   "version": "2025.1.1",
   "license": "GPL-3.0-only",
-  "publisher": "lyslang",
+  "publisher": "lyxlang",
   "qna": false,
-  "homepage": "https://github.com/lyslang/vscode-lys#readme",
+  "homepage": "https://github.com/lyxlang/vscode-lyx#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lyslang/vscode-lys.git"
+    "url": "git+https://github.com/lyxlang/vscode-lyx.git"
   },
   "bugs": {
-    "url": "https://github.com/lyslang/vscode-lys/issues"
+    "url": "https://github.com/lyxlang/vscode-lyx/issues"
   },
   "categories": ["Programming Languages", "Formatters"],
   "keywords": ["functional"],
@@ -31,42 +31,42 @@
   },
   "contributes": {
     "configuration": {
-      "title": "Lys",
+      "title": "Lyx",
       "properties": {
-        "lys.executablePath": {
+        "lyx.executablePath": {
           "type": "string",
-          "default": "lys",
+          "default": "lyx",
           "scope": "machine-overridable",
-          "description": "Path to or name in PATH of the Lys executable."
+          "description": "Path to or name in PATH of the Lyx executable."
         }
       }
     },
     "configurationDefaults": {
-      "[lys]": {
-        "editor.defaultFormatter": "lyslang.lys",
+      "[lyx]": {
+        "editor.defaultFormatter": "lyxlang.lyx",
         "editor.indentSize": 2
       }
     },
     "languages": [
       {
-        "id": "lys",
-        "aliases": ["Lys", "lys"],
-        "extensions": [".lys"],
+        "id": "lyx",
+        "aliases": ["Lyx", "lyx"],
+        "extensions": [".lyx"],
         "configuration": "syntaxes/language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "lys",
-        "scopeName": "source.lys",
-        "path": "syntaxes/lys.tmLanguage.json"
+        "language": "lyx",
+        "scopeName": "source.lyx",
+        "path": "syntaxes/lyx.tmLanguage.json"
       },
       {
-        "scopeName": "markdown.lys.codeblock",
-        "path": "syntaxes/lys.codeblock.json",
+        "scopeName": "markdown.lyx.codeblock",
+        "path": "syntaxes/lyx.codeblock.json",
         "injectTo": ["text.html.markdown"],
         "embeddedLanguages": {
-          "meta.embedded.block.lys": "lys"
+          "meta.embedded.block.lyx": "lyx"
         }
       }
     ]

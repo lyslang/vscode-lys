@@ -1,145 +1,145 @@
 {
   "$schema": "https://json.schemastore.org/tmlanguage.json",
-  "name": "Lys",
-  "scopeName": "source.lys",
-  "fileTypes": ["lys"],
+  "name": "Lyx",
+  "scopeName": "source.lyx",
+  "fileTypes": ["lyx"],
   "uuid": "f0c0050a-de48-4a3c-8d5c-97770cb8f29e",
   "patterns": [
     {
-      "name": "comment.block.lys",
+      "name": "comment.block.lyx",
       "begin": "`",
       "end": "`"
     },
     {
-      "name": "constant.numeric.float.lys",
+      "name": "constant.numeric.float.lyx",
       "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b",
       "captures": {
         "1": {
-          "name": "punctuation.separator.decimal.lys"
+          "name": "punctuation.separator.decimal.lyx"
         }
       }
     },
     {
-      "name": "constant.numeric.int.lys",
+      "name": "constant.numeric.int.lyx",
       "match": "\\b\\d+([eE][+-]?\\d+)?\\b"
     },
     {
-      "name": "constant.language.bool.lys",
+      "name": "constant.language.bool.lyx",
       "match": "\\b(True|False)\\b"
     },
     {
-      "name": "constant.language.unit.lys",
+      "name": "constant.language.unit.lyx",
       "match": "\\(\\)"
     },
     {
-      "name": "constant.language.builtin.lys",
+      "name": "constant.language.builtin.lyx",
       "match": "\\b(Int|Float|String|Bool|Unit)\\b"
     },
     {
-      "name": "constant.language.type.lys",
+      "name": "constant.language.type.lyx",
       "match": "\\b\\p{Lu}[\\p{L}\\d]*'*"
     },
     {
-      "name": "keyword.control.lys",
+      "name": "keyword.control.lyx",
       "match": "\\b(if|then|else|let|in|match|as)\\b|\\\\"
     },
     {
-      "name": "keyword.operator.lys",
+      "name": "keyword.operator.lyx",
       "match": "\\+\\+|\\|>|->"
     },
     {
-      "name": "keyword.operator.logical.lys",
+      "name": "keyword.operator.logical.lyx",
       "match": "\\|\\||&&"
     },
     {
-      "name": "keyword.operator.comparison.lys",
+      "name": "keyword.operator.comparison.lyx",
       "match": "!=|!~|~~|==|<=|>="
     },
     {
-      "name": "keyword.operator.arithmetic.lys",
+      "name": "keyword.operator.arithmetic.lyx",
       "match": "\\*\\*"
     },
     {
-      "name": "keyword.operator.bitwise.lys",
+      "name": "keyword.operator.bitwise.lyx",
       "match": ">>|<<"
     },
     {
-      "name": "keyword.operator.assignment.lys",
+      "name": "keyword.operator.assignment.lyx",
       "match": ":=|="
     },
     {
-      "name": "keyword.operator.logical.lys",
+      "name": "keyword.operator.logical.lyx",
       "match": "!"
     },
     {
-      "name": "keyword.operator.comparison.lys",
+      "name": "keyword.operator.comparison.lyx",
       "match": "[<>]"
     },
     {
-      "name": "keyword.operator.arithmetic.lys",
+      "name": "keyword.operator.arithmetic.lyx",
       "match": "[%\\/*-+]"
     },
     {
-      "name": "keyword.operator.bitwise.lys",
+      "name": "keyword.operator.bitwise.lyx",
       "match": "[\\^|&]"
     },
     {
-      "name": "keyword.operator.lys",
+      "name": "keyword.operator.lyx",
       "match": ":"
     },
     {
-      "name": "keyword.other.lys",
+      "name": "keyword.other.lyx",
       "match": "\\bdef\\b"
     },
     {
-      "name": "punctuation.semicolon punctuation.separator.semicolon keyword.other.lys",
+      "name": "punctuation.semicolon punctuation.separator.semicolon keyword.other.lyx",
       "match": ";"
     },
     {
-      "name": "punctuation.comma punctuation.separator.comma keyword.other.lys",
+      "name": "punctuation.comma punctuation.separator.comma keyword.other.lyx",
       "match": ","
     },
     {
-      "name": "punctuation.ellipsis punctuation.terminator.ellipsis keyword.other.lys",
+      "name": "punctuation.ellipsis punctuation.terminator.ellipsis keyword.other.lyx",
       "match": "\\.\\.\\."
     },
     {
-      "name": "string.quoted.double.lys",
+      "name": "string.quoted.double.lyx",
       "begin": "\"",
       "end": "\"",
       "patterns": [
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\$"
         },
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\\\\\"
         },
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\[\"'ntbr ]"
         },
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\\\d{3}"
         },
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\x[A-Fa-f0-9]{2}"
         },
         {
-          "name": "constant.character.escape.lys",
+          "name": "constant.character.escape.lyx",
           "match": "\\\\o[0-3][0-7]{2}"
         },
         {
-          "name": "invalid.illegal.unknown-escape.lys",
+          "name": "invalid.illegal.unknown-escape.lyx",
           "match": "\\\\."
         }
       ]
     },
     {
-      "name": "variable.other.lys",
+      "name": "variable.other.lyx",
       "match": "\\b((\\p{Ll}[\\p{L}\\d]*'*)|_)"
     }
   ]
