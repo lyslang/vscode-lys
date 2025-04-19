@@ -8,8 +8,8 @@ import { spawn } from "node:child_process";
 import vscode from "vscode";
 import { contributes } from "../package.json";
 
-interface LyxError {
-  code: number;
+interface LyxReport {
+  code: string;
   msg: string;
   startLine: number;
   startCol: number;
@@ -36,7 +36,7 @@ class Formatter {
       const cwd =
         vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? process.cwd();
 
-      const lyxFmt = spawn(executablePath, ["fmt"], { cwd });
+      const lyxFmt = spawn(executablePath, ["fmt-debug"], { cwd });
 
       cancel.onCancellationRequested(() => lyxFmt.kill());
 
@@ -75,6 +75,33 @@ class Formatter {
 
       this.diagnostics.delete(document.uri);
 
+      const lyxReports: LyxReport[] = JSON.parse(stderr);
+
+      if (lyxReports.length > 0) {
+        const diagnostics: vscode.Diagnostic[] = lyxReports.map((report) => {
+          const message = `${report.code}: ${report.msg}`;
+
+          return new vscode.Diagnostic(
+            new vscode.Range(
+              report.startLine,
+              report.startCol,
+              report.endLine,
+              report.endCol,
+            ),
+            message,
+            report.code.startsWith("E")
+              ? vscode.DiagnosticSeverity.Error
+              : vscode.DiagnosticSeverity.Warning,
+          );
+        });
+
+        this.diagnostics.set(document.uri, diagnostics);
+
+        vscode.window.showErrorMessage(
+          diagnostics[0]?.message || "Empty report message.",
+        );
+      }
+
       if (code === 0) {
         const fullRange = new vscode.Range(
           document.positionAt(0),
@@ -82,24 +109,6 @@ class Formatter {
         );
         return [vscode.TextEdit.replace(fullRange, stdout)];
       }
-
-      const lyxError: LyxError = JSON.parse(stderr);
-
-      const errorMessage = `E${lyxError.code.toString().padStart(4, "0")}: ${lyxError.msg}`;
-
-      const diagnostic = new vscode.Diagnostic(
-        new vscode.Range(
-          lyxError.startLine,
-          lyxError.startCol,
-          lyxError.endLine,
-          lyxError.endCol,
-        ),
-        errorMessage,
-        vscode.DiagnosticSeverity.Error,
-      );
-
-      this.diagnostics.set(document.uri, [diagnostic]);
-      vscode.window.showErrorMessage(errorMessage);
     } catch (err) {
       if (err instanceof Error) {
         vscode.window.showErrorMessage(`Formatting failed: ${err.message}`);

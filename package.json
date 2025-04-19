@@ -4,7 +4,7 @@
   "description": "The Lyx purely functional programming language.",
   "private": true,
   "icon": "assets/brand-256.png",
-  "version": "2025.1.1",
+  "version": "2025.4.19",
   "license": "GPL-3.0-only",
   "publisher": "lyxlang",
   "qna": false,
